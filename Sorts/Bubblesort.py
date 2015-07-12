@@ -3,14 +3,11 @@ __author__ = 'Meemaw'
 
 
 def bubbleSort(aList):
-    sortBound = int(len(aList)-1)
-    for i in range(len(aList)):
+    for i in range(1,len(aList)):
         sorted = True
-        for j in range(sortBound):
+        for j in range(len(aList)-i):
             if aList[j] > aList[j+1]:
                 sorted = False
                 aList[j], aList[j+1] = aList[j+1], aList[j]
         if sorted:
             return
-        sortBound-=1
-

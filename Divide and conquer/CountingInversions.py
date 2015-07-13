@@ -1,11 +1,5 @@
 __author__ = 'Meemaw'
 
-aList = []
-with open("odpri.txt") as f:
-    for line in f:
-        aList.append(int(line))
-
-
 
 def countInversion(aList):
     total = 0
@@ -41,7 +35,3 @@ def Merge(firstHalf, secondHalf, aList):
         globalCount+=1
     return total
 
-
-
-total = countInversion(aList)
-print(total)

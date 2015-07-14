@@ -12,4 +12,3 @@ def bubbleSort(aList):
         if sorted:
             return
 
-

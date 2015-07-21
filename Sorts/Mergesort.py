@@ -30,5 +30,4 @@ def Merge(firstHalf, secondHalf, aList):
         aList[globalCount] = remaining[zacni]
         zacni+=1
         globalCount+=1
-    return aList
 

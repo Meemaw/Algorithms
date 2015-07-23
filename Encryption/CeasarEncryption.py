@@ -6,6 +6,8 @@ import string
 
 
 ## Methods for encryption
+
+## Build coding dictionary (coder) according to shift
 def buildCoder(shift):
     coder = {}
     for char in string.ascii_lowercase:
@@ -20,7 +22,7 @@ def buildCoder(shift):
         coder[char] = chr(stevilo+64)
     return coder
 
-
+## Applying coder to shift
 def applyCoder(text, coder):
     encrypted = ""
     for char in text:
@@ -28,6 +30,8 @@ def applyCoder(text, coder):
         encrypted+=value
     return encrypted
 
+
+## Using coder and shift, it returns encrypted text
 def applyShift(text, shift):
     coder = buildCoder(shift)
     return applyCoder(text,coder)
@@ -35,23 +39,27 @@ def applyShift(text, shift):
 
 ## Methods for decryption
 
+## Load wordList from a file
 def loadWords():
     print("Loading word list from file...")
+    ## An actual filename should be stated
     inFile = open("fileName.txt", 'r')
     wordList = inFile.read().split()
     print("  ", len(wordList), "words loaded.")
     return wordList
 
+## Check if word is an actual word
 def isWord(wordList, word):
     word = word.lower()
     word = word.strip(" !@#$%^&*()-_+={}[]|\\:;'<>?,./\"")
     return word in wordList
 
 
+## Finding best possible shift with most actual words
 def findBestShift(wordList, text):
     best = 0
     bestShift = 0
-    for shift in range(1,27):
+    for shift in range(0,26):
         current = 0
         coder = buildCoder(shift)
         encrypted = applyCoder(text,coder)
@@ -67,8 +75,10 @@ def findBestShift(wordList, text):
     return shift
 
 
+## Use this method to decrypt story
 def decryptStory(text):
     wordList = loadWords()
     bestShift = findBestShift(wordList,text)
     encrypted = applyShift(text,bestShift)
     return encrypted
+

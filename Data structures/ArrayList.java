@@ -1,13 +1,6 @@
-package data_structures_tested;
-
 import java.lang.reflect.Array;
 
-/**
- * Created by Meemaw on 09/02/16.
- */
 public class ArrayList<T> {
-
-
 
     private T[] elements;
     private int numElements;
@@ -25,7 +18,6 @@ public class ArrayList<T> {
         this.c = c;
     }
 
-
     public void add(T element) {
         this.elements[numElements++] = element;
         if(numElements == maxElements) {
@@ -35,7 +27,6 @@ public class ArrayList<T> {
             this.elements = copy;
         }
     }
-
 
     public void remove(int index) {
         if(index >= size()) return;
@@ -51,11 +42,9 @@ public class ArrayList<T> {
         return numElements;
     }
 
-
     public boolean isEmpty() {
         return this.numElements == 0;
     }
-
 
     @Override
     public String toString() {

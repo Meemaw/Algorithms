@@ -1,10 +1,4 @@
-package data_structures_tested;
-
-/**
- * Created by Meemaw on 09/02/16.
- */
 public class Queue<T> {
-
 
     private static class QueueElement<T> {
         private QueueElement next;
@@ -18,7 +12,6 @@ public class Queue<T> {
 
     private QueueElement front;
     private QueueElement back;
-
 
     public Queue() {
         this.front = null;
@@ -40,14 +33,12 @@ public class Queue<T> {
         }
     }
 
-
     public T dequeue() {
         if(isEmpty()) return null;
         QueueElement temp = this.front;
         this.front = this.front.next;
         return (T) temp.element;
     }
-
 
     public int size() {
         if(isEmpty()) return 0;
@@ -59,5 +50,4 @@ public class Queue<T> {
         }
         return sum;
     }
-
 }

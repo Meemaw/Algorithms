@@ -1,18 +1,11 @@
-package data_structures_tested;
-
 import java.lang.reflect.Array;
 
-/**
- * Created by Meemaw on 09/02/16.
- */
 public class Stack<T> {
-
 
     private Class c;
     private T[] elements;
     private int numElements;
     private int maxElements;
-
 
     public Stack(Class c) {
         this(c,10);
@@ -25,8 +18,6 @@ public class Stack<T> {
         this.numElements = 0;
     }
 
-
-
     public void push(T element) {
         this.elements[numElements++] = element;
         if(this.isFull()) {
@@ -35,7 +26,6 @@ public class Stack<T> {
             System.arraycopy(this.elements, 0, copy, 0, size());
             this.elements = copy;
         }
-
     }
 
     public T pop() {
@@ -58,11 +48,7 @@ public class Stack<T> {
         return this.size() == 0;
     }
 
-
-
     public int size() {
         return this.numElements;
     }
-
-
 }

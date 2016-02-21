@@ -1,11 +1,4 @@
-package data_structures_tested;
-
-/**
- * Created by Meemaw on 09/02/16.
- */
 public class LinkedList<T>  {
-
-
 
     private static class LinkedListElement<T> {
 
@@ -15,18 +8,15 @@ public class LinkedList<T>  {
         private LinkedListElement(T elem) {
             this.element = elem;
         }
-    }
-
+    
 
     private LinkedListElement front;
     private LinkedListElement back;
-
 
     public LinkedList() {
         front = null;
         back = null;
     }
-
 
     public void add(T element) {
         LinkedListElement c = new LinkedListElement(element);
@@ -38,7 +28,6 @@ public class LinkedList<T>  {
             back = c;
         }
     }
-
 
     public void remove(int index) {
         int length = size();

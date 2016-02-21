@@ -1,61 +1,63 @@
+package data_structures_tested;
 
-public class Queue {
-	
-	private class QueueElement {
-		
-		public Object element;
-		public QueueElement next;
-		
-		public QueueElement(Object element) {
-			this.element = element;
-			next = null;
-		}
-	}
-	
-	private QueueElement front;
-	private QueueElement end;
-	
-	
-	public Queue() {
-		initialaze();
-	}
-	
-	private void initialaze() {
-		front = null;
-		end = null;
-	}
-	
-	public boolean empty() {
-		return front == null;
-	}
-	
-	public void enqueue(Object obj) {
-		QueueElement novi = new QueueElement(obj);
-		if(empty()){
-			front = novi;
-			end = novi;
-		}
-		else {
-			end.next = novi;
-			end = novi;
-		}
-	}
-	
-	public QueueElement dequeue() {
-		if(empty()) return null;
-		QueueElement temp = front;
-		front = front.next;
-		return temp;
-	}
-	
-	public int size() {
-		int acc = 0;
-		QueueElement temp = front;
-		while(temp != null) {
-			acc++;
-			temp = temp.next;
-		}
-		return acc;
-	}
+/**
+ * Created by Meemaw on 09/02/16.
+ */
+public class Queue<T> {
+
+
+    private static class QueueElement<T> {
+        private QueueElement next;
+        private T element;
+
+        public QueueElement(T element) {
+            this.element = element;
+            this.next = null;
+        }
+    }
+
+    private QueueElement front;
+    private QueueElement back;
+
+
+    public Queue() {
+        this.front = null;
+        this.back = null;
+    }
+
+    public boolean isEmpty() {
+        return this.front == null;
+    }
+
+    public void enqueue(T element) {
+        QueueElement input = new QueueElement(element);
+        if(isEmpty()) {
+            this.front = input;
+            this.back = input;
+        } else {
+            this.back.next = input;
+            this.back = input;
+        }
+    }
+
+
+    public T dequeue() {
+        if(isEmpty()) return null;
+        QueueElement temp = this.front;
+        this.front = this.front.next;
+        return (T) temp.element;
+    }
+
+
+    public int size() {
+        if(isEmpty()) return 0;
+        QueueElement temp = this.front;
+        int sum = 0;
+        while(temp != null) {
+            sum += 1;
+            temp = temp.next;
+        }
+        return sum;
+    }
 
 }

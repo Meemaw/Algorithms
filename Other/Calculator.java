@@ -10,7 +10,6 @@ public class Calculator {
     private static final int RIGHT_ASOCIATIVITY = 1;
     private static final int LEFT_ASOCIATIVITY = 0;
 
-
     /**
      * Static Hashmap for constant lookup time for operator precedence and asociativity
      * {precedence, asociativity}
@@ -35,7 +34,7 @@ public class Calculator {
 
     /**
      * Returns tokenized expression with one whitespace between all operands.
-     * Example: (1+2     / 2*1-5)  --->  (1 + 2 / 2 * 1 - 5)
+     * Example: (1+2     / (2*1)-5     )  --->  ( 1 + 2 / ( 2 * 1 ) - 5 )
      *
      * @param expression
      * @return tokenized expression
@@ -145,7 +144,6 @@ public class Calculator {
         return reversePolishNotation(toPostfix(expression));
     }
 
-
     /**
      * Public method for calculating result and obtaining some more information about calculation
      *
@@ -154,7 +152,6 @@ public class Calculator {
      */
     public String getTrace(String expression) {
         long t1 = System.currentTimeMillis();
-        expression = tokenizeInput(expression);
         String postfix = toPostfix(expression);
         long duration = System.currentTimeMillis() - t1;
         StringBuilder builder = new StringBuilder();
@@ -167,6 +164,4 @@ public class Calculator {
         builder.append("\n").append(reversePolishNotation(postfix));
         return builder.toString();
     }
-
-
 }
